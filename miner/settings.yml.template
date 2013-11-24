@@ -1,0 +1,5 @@
+user:
+pass:
+directory: C:\Users\Will\Desktop\cgminer
+temp_target: 56
+max_temp: 61
