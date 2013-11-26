@@ -1,5 +1,8 @@
 user:
 pass:
-directory: C:\Users\Will\Desktop\cgminer
-temp_target: 56
-max_temp: 61
+bitcoin_address:
+primecoin_address: AdgLUAL6hK3kcZ2vftygzMj5Xwjeor5f17
+litecoin_address:
+cgminer_directory: C:\Users\Will\Desktop\everything\guiminer-scrypt\cgminer
+temp_target: 57
+max_temp: 65
