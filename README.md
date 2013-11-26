@@ -18,7 +18,10 @@ Does not use the GPU or mine alt coins. Probably better options available at
 
 #### Miners
 
-Eventually should help setup and make optimal use of a systems resources; scrypt with the GPU, and Primecoins or similar w/ CPU, and using and peripherals (eg ASICs)
+Eventually should help setup and make optimal use of a systems resources; scrypt with the GPU, Primecoins or similar w/ CPU,
+and using peripherals (eg ASICs)
+
+use settings.yml.template to fill in settings, or respond to interactive prompts in some scripts
 
 * cgminer
 * primeminer (working on it)
