@@ -35,10 +35,17 @@ def summary_string(address,range=0..-1)
   btc_to_usd = bitcoin_price
   xpm_to_btc = xpm_price
 
-  page = open("http://beeeeer.org/user/#{address}").read
 
+  url = "http://beeeeer.org/user/#{address}"
+  page = open(url).read
+  history = page.scan(/sharehistory=(\[.+\]);/)
 
-  @payments ||= JSON.parse(page.scan(/sharehistory=(\[.+\]);/).first.first)
+  unless history.first
+    puts "no history for #{address}, make sure you can access #{url}"
+    exit(0)
+  end
+
+  @payments ||= JSON.parse(history.first.first)
   payments = @payments[range]
   revenue = payments.map{|p| p["reward"]}.reduce(:+)
   time_period = (payments.first["time"] - payments.last["time"]).to_f
@@ -88,8 +95,7 @@ else
   address = interactive
 end
 
-puts "Last 50 payouts"
-puts summary_string(address,0..49)
+puts "Last 50 payouts:\n #{summary_string(address,0..49)}"
 
 puts "All Payouts"
 puts summary_string(address)
