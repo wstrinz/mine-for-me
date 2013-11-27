@@ -7,13 +7,7 @@ require 'openssl'
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 def bitcoin_price
-  if @bitcoin_price
-    @bitcoin_price
-  else
-    js = open('https://mtgox.com/api/1/BTCUSD/ticker').read
-    js = JSON.parse(js)
-    @bitcoin_price = js["return"]["last"]["value"].to_f
-  end
+  @bitcoin_price ||= JSON.parse(open('https://mtgox.com/api/1/BTCUSD/ticker').read)["return"]["last"]["value"].to_f
 end
 
 def xpm_price
